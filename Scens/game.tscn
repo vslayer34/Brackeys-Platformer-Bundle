@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://r5iwfr3gj0g8"]
+[gd_scene load_steps=9 format=3 uid="uid://r5iwfr3gj0g8"]
 
 [ext_resource type="PackedScene" uid="uid://dmsoqmjp3bs3w" path="res://Scens/player.tscn" id="1_tvo53"]
 [ext_resource type="Texture2D" uid="uid://cq5ea6otjcu64" path="res://Assets/Sprites/world_tileset.png" id="2_dwl40"]
@@ -406,6 +406,44 @@ texture = ExtResource("2_dwl40")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_83l55")
 
+[sub_resource type="Animation" id="Animation_admbc"]
+resource_name = "Move"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(408, 224), Vector2(514, 224)]
+}
+
+[sub_resource type="Animation" id="Animation_tm7vw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(408, 224)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_81iuu"]
+_data = {
+"Move": SubResource("Animation_admbc"),
+"RESET": SubResource("Animation_tm7vw")
+}
+
 [node name="Game" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -415,14 +453,20 @@ format = 2
 layer_0/tile_data = PackedInt32Array(786447, 0, 0, 786446, 0, 0, 917517, 0, 0, 917516, 0, 0, 983052, 0, 1, 983053, 0, 1, 1048588, 0, 1, 851982, 0, 1, 917518, 0, 1, 983054, 0, 1, 1048590, 0, 1, 1048591, 0, 1, 983055, 65536, 0, 917519, 0, 1, 851983, 0, 1, 851981, 65536, 0, 1048589, 65536, 1, 917520, 393216, 0, 917521, 458752, 1, 917522, 393216, 0, 917526, 393216, 0, 917527, 393216, 0, 917530, 458752, 1, 917531, 393216, 0, 983058, 393216, 1, 983057, 524288, 1, 1048593, 393216, 1, 1048592, 393216, 1, 983056, 393216, 1, 1048594, 393216, 1, 983062, 393216, 1, 1048598, 393216, 1, 1048599, 393216, 1, 983063, 393216, 1, 983066, 393216, 1, 1048602, 393216, 1, 1048603, 393216, 1, 983067, 524288, 0, 917523, 589824, 0, 917524, 655360, 0, 917525, 720896, 0, 589841, 0, 1, 524306, 0, 1, 589842, 65536, 0, 524307, 0, 1, 589843, 0, 1, 655380, 0, 1, 655381, 0, 1, 655384, 0, 1, 589849, 0, 1, 655385, 65536, 1, 589850, 0, 1, 655386, 0, 1, 655387, 0, 1, 524305, 0, 0, 458770, 0, 0, 458771, 0, 0, 589844, 0, 0, 589845, 0, 0, 589846, 589824, 0, 589847, 720896, 0, 589848, 0, 0, 524313, 0, 0, 524314, 0, 0, 589851, 0, 0, 655388, 262144, 0, 655389, 262144, 0, 655390, 262144, 0, 720924, 262144, 1, 720925, 262144, 1, 720926, 262144, 1, 720927, 327680, 0, 786464, 327680, 1, 786462, 262144, 1, 786463, 262144, 1, 851999, 262144, 1, 852000, 262144, 1, 786465, 262144, 0, 786466, 262144, 0, 852001, 262144, 1, 917537, 262144, 1, 983073, 262144, 1, 1048609, 262144, 1, 852002, 262144, 1, 917538, 262144, 1, 1048610, 262144, 1, 983074, 327680, 0, 524309, 0, 5, 393237, 0, 4, 458773, 0, 4, 327701, 0, 3, 458782, 327680, 3, 524318, 327680, 4, 589854, 327680, 5, 589853, 524288, 6, 851990, 0, 8, 851980, 65536, 6, 720928, 327680, 8, 917548, 131072, 1, 983084, 196608, 1, 1048620, 131072, 1, 786476, 131072, 2, 852012, 131072, 1, 786477, 131072, 0, 852013, 196608, 0, 917549, 131072, 1, 983085, 131072, 1, 1048621, 131072, 1, 852014, 393216, 7, 917550, 196608, 1, 983086, 131072, 1, 1048622, 131072, 1, 917551, 131072, 1, 983087, 131072, 1, 1048623, 131072, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_tvo53")]
-position = Vector2(239, 183)
+position = Vector2(67, 201)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 
 [node name="Platform" parent="." instance=ExtResource("3_3rt16")]
-position = Vector2(251, 156)
+position = Vector2(79, 174)
 
 [node name="Platform2" parent="." instance=ExtResource("3_3rt16")]
 position = Vector2(408, 224)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform2"]
+libraries = {
+"": SubResource("AnimationLibrary_81iuu")
+}
+autoplay = "Move"

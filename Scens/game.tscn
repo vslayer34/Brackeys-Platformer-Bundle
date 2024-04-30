@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://r5iwfr3gj0g8"]
+[gd_scene load_steps=14 format=3 uid="uid://r5iwfr3gj0g8"]
 
 [ext_resource type="PackedScene" uid="uid://dmsoqmjp3bs3w" path="res://Scens/player.tscn" id="1_tvo53"]
 [ext_resource type="Texture2D" uid="uid://cq5ea6otjcu64" path="res://Assets/Sprites/world_tileset.png" id="2_dwl40"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cwderh5n1b3c8" path="res://Scens/coin.tscn" id="4_74sa7"]
 [ext_resource type="PackedScene" uid="uid://b7g3y72hkylbk" path="res://Scens/kill_zone.tscn" id="5_x6kkm"]
 [ext_resource type="PackedScene" uid="uid://drjt0els5v7dw" path="res://Scens/slime.tscn" id="6_gaavb"]
+[ext_resource type="FontFile" uid="uid://203pxrowx7cb" path="res://Assets/Fonts/PixelOperator8.ttf" id="7_71xd0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_83l55"]
 texture = ExtResource("2_dwl40")
@@ -522,3 +523,32 @@ autoplay = "Move"
 
 [node name="Slime" parent="Enemies" instance=ExtResource("6_gaavb")]
 position = Vector2(576, 249)
+
+[node name="Labels" type="Node" parent="."]
+
+[node name="PressJump" type="Label" parent="Labels"]
+offset_left = -46.0
+offset_top = 206.0
+offset_right = 41.0
+offset_bottom = 229.0
+theme_override_fonts/font = ExtResource("7_71xd0")
+theme_override_font_sizes/font_size = 8
+text = "Space To Jump"
+
+[node name="Beware" type="Label" parent="Labels"]
+offset_left = 422.0
+offset_top = 206.0
+offset_right = 509.0
+offset_bottom = 229.0
+theme_override_fonts/font = ExtResource("7_71xd0")
+theme_override_font_sizes/font_size = 8
+text = "Danger: FALL!!!"
+
+[node name="AlmostThere" type="Label" parent="Labels"]
+offset_left = 785.0
+offset_top = 106.0
+offset_right = 879.0
+offset_bottom = 129.0
+theme_override_fonts/font = ExtResource("7_71xd0")
+theme_override_font_sizes/font_size = 8
+text = " Almost!! \\m/"

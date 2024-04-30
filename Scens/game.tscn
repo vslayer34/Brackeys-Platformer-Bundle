@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://r5iwfr3gj0g8"]
+[gd_scene load_steps=13 format=3 uid="uid://r5iwfr3gj0g8"]
 
 [ext_resource type="PackedScene" uid="uid://dmsoqmjp3bs3w" path="res://Scens/player.tscn" id="1_tvo53"]
 [ext_resource type="Texture2D" uid="uid://cq5ea6otjcu64" path="res://Assets/Sprites/world_tileset.png" id="2_dwl40"]
 [ext_resource type="PackedScene" uid="uid://b0bhhph4r5lsj" path="res://Scens/platform.tscn" id="3_3rt16"]
 [ext_resource type="PackedScene" uid="uid://cwderh5n1b3c8" path="res://Scens/coin.tscn" id="4_74sa7"]
 [ext_resource type="PackedScene" uid="uid://b7g3y72hkylbk" path="res://Scens/kill_zone.tscn" id="5_x6kkm"]
+[ext_resource type="PackedScene" uid="uid://drjt0els5v7dw" path="res://Scens/slime.tscn" id="6_gaavb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_83l55"]
 texture = ExtResource("2_dwl40")
@@ -516,3 +517,8 @@ libraries = {
 "": SubResource("AnimationLibrary_81iuu")
 }
 autoplay = "Move"
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Slime" parent="Enemies" instance=ExtResource("6_gaavb")]
+position = Vector2(576, 249)

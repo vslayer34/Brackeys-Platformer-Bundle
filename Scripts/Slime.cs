@@ -18,6 +18,8 @@ public partial class Slime : Node2D
 	// the movement direction 1: to right, -1: to left
 	private Vector2 _direction = Vector2.Right;
 
+
+
     public override void _Process(double delta)
     {
         if (_rayToRight.IsColliding())

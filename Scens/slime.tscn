@@ -54,7 +54,7 @@ position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_lc4sl")
 animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.799873
+frame_progress = 0.736339
 
 [node name="KillZone" parent="." instance=ExtResource("2_qdtjn")]
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://drjt0els5v7dw"]
+[gd_scene load_steps=10 format=3 uid="uid://drjt0els5v7dw"]
 
 [ext_resource type="Texture2D" uid="uid://d386mhdxhnov" path="res://Assets/Sprites/slime_green.png" id="1_4x2pu"]
+[ext_resource type="Script" path="res://Scripts/Slime.cs" id="1_8odqv"]
 [ext_resource type="PackedScene" uid="uid://b7g3y72hkylbk" path="res://Scens/kill_zone.tscn" id="2_qdtjn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4vj3f"]
@@ -42,17 +43,29 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ey38k"]
 size = Vector2(10, 14)
 
-[node name="Slime" type="Node2D"]
+[node name="Slime" type="Node2D" node_paths=PackedStringArray("_animatedSprite", "_rayToRight", "_rayToLeft")]
+script = ExtResource("1_8odqv")
+_animatedSprite = NodePath("AnimatedSprite2D")
+_rayToRight = NodePath("RayCastRight")
+_rayToLeft = NodePath("RayCastLeft")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_lc4sl")
 animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.281785
+frame_progress = 0.799873
 
 [node name="KillZone" parent="." instance=ExtResource("2_qdtjn")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
 position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_ey38k")
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(0, -7)
+target_position = Vector2(12, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(0, -7)
+target_position = Vector2(-12, 0)
